@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
             questionText.style.color = "#D32F2F"; // A deeper red/pink
             questionText.style.fontSize = "1.8rem";
 
-            // Switch buttons
+            // Switch buttons (Hide old ones, we don't show new one for this prank flow)
             initialButtons.classList.add('hidden');
-            finalButtons.classList.remove('hidden');
+            // finalButtons.classList.remove('hidden'); // HIDDEN FOR PRANK MODE
 
             // Warm up background
             body.classList.add('valentine-mode');
@@ -75,20 +75,29 @@ document.addEventListener('DOMContentLoaded', () => {
             // Fade back in
             questionText.style.opacity = '1';
 
-            // Create some sparkles/hearts effect (simple CSS classes or JS particles could go here)
+            // Create some sparkles/hearts effect
             createFloatingHearts();
+
+            // PRANK LOGIC: Auto-trigger success after 3 seconds (Reading time)
+            setTimeout(() => {
+                triggerSuccess();
+            }, 3000);
 
         }, 500);
     }
 
-    // 4. Handle Final "Yes"
+    // 4. Handle Final "Yes" (Fallback, mainly unused now)
     btnValentineYes.addEventListener('click', () => {
+        triggerSuccess();
+    });
+
+    function triggerSuccess() {
         successScreen.classList.remove('hidden');
         setTimeout(() => {
             successScreen.classList.add('visible');
             confettiEffect();
         }, 50);
-    });
+    }
 
     function createFloatingHearts() {
         // Simple visual effect - could adding elements
