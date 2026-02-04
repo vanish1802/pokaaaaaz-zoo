@@ -55,6 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to transform UI to Valentine Mode
     function triggerValentineMode() {
+        // Lock the Yes button immediately
+        btnYes.disabled = true;
+
         // Fade out buttons first
         // initialButtons.style.opacity = '0'; // WE DO NOT FADE OUT CONTAINER ANYMORE
         btnNo.style.display = 'none'; // HIDE NO BUTTON
