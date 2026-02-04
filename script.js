@@ -4,13 +4,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnYes = document.getElementById('btn-yes');
     const btnFine = document.getElementById('btn-fine');
     const btnValentineYes = document.getElementById('btn-valentine-yes');
-    
+
     const modal = document.getElementById('no-modal');
     const questionText = document.getElementById('main-question');
     const initialButtons = document.getElementById('initial-buttons');
     const finalButtons = document.getElementById('final-buttons');
     const body = document.body;
     const successScreen = document.getElementById('success-screen');
+
+    // Checkboxes
+    const check1 = document.getElementById('check1');
+    const check2 = document.getElementById('check2');
+    const check3 = document.getElementById('check3');
+    const checkboxes = [check1, check2, check3];
+
+    // Initial State: Disable buttons
+    toggleButtons(false);
+
+    // Event listener for checkboxes
+    checkboxes.forEach(box => {
+        box.addEventListener('change', () => {
+            const allChecked = checkboxes.every(box => box.checked);
+            toggleButtons(allChecked);
+        });
+    });
+
+    function toggleButtons(enabled) {
+        btnNo.disabled = !enabled;
+        btnYes.disabled = !enabled;
+    }
 
     // 1. Handle "No" Click
     btnNo.addEventListener('click', () => {
@@ -42,17 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
             questionText.textContent = "Will you be my Valentine?";
             questionText.style.color = "#D32F2F"; // A deeper red/pink
             questionText.style.fontSize = "1.8rem";
-            
+
             // Switch buttons
             initialButtons.classList.add('hidden');
             finalButtons.classList.remove('hidden');
-            
+
             // Warm up background
             body.classList.add('valentine-mode');
 
             // Fade back in
             questionText.style.opacity = '1';
-            
+
             // Create some sparkles/hearts effect (simple CSS classes or JS particles could go here)
             createFloatingHearts();
 
@@ -70,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createFloatingHearts() {
         // Simple visual effect - could adding elements
-        for(let i=0; i<10; i++) {
+        for (let i = 0; i < 10; i++) {
             const heart = document.createElement('div');
             heart.innerHTML = '❤️';
             heart.style.position = 'fixed';
@@ -86,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 heart.style.top = '-100px';
                 heart.style.left = `calc(${heart.style.left} + ${Math.random() * 100 - 50}px)`;
             }, 100);
-            
+
             setTimeout(() => {
                 heart.remove();
             }, 4000);
@@ -97,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // A simple Burst of emojis
         const emojis = ['🎉', '❤️', '🐯', '🐘', '🦒', '🐒'];
         const container = document.querySelector('.success-content');
-        
+
         setInterval(() => {
             const el = document.createElement('div');
             el.textContent = emojis[Math.floor(Math.random() * emojis.length)];

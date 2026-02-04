@@ -1,12 +1,16 @@
 :root {
-    --bg-color: #FFFDD0; /* Cream */
+    --bg-color: #FFFDD0;
+    /* Cream */
     --card-bg: #FFFFFF;
-    --primary-color: #FFB7B2; /* Blush Pink */
+    --primary-color: #FFB7B2;
+    /* Blush Pink */
     --primary-dark: #FF9E99;
-    --secondary-color: #E2F0CB; /* Soft Green */
+    --secondary-color: #E2F0CB;
+    /* Soft Green */
     --text-color: #4A4A4A;
     --text-light: #7A7A7A;
-    --shadow: 0 10px 30px rgba(0,0,0,0.08); /* Soft shadow */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
     --font-family: 'Quicksand', sans-serif;
 }
 
@@ -174,11 +178,11 @@ h3 {
     transition: background-color 0.2s;
 }
 
-.checkbox-container:hover input ~ .checkmark {
+.checkbox-container:hover input~.checkmark {
     background-color: #ccc;
 }
 
-.checkbox-container input:checked ~ .checkmark {
+.checkbox-container input:checked~.checkmark {
     background-color: var(--primary-color);
 }
 
@@ -188,7 +192,7 @@ h3 {
     display: none;
 }
 
-.checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked~.checkmark:after {
     display: block;
 }
 
@@ -252,7 +256,15 @@ h3 {
 
 .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    filter: grayscale(100%);
 }
 
 /* Heart Pulse Animation for Final Yes */
@@ -261,9 +273,17 @@ h3 {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Modal */
@@ -274,7 +294,8 @@ h3 {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5); /* Dimmed background */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dimmed background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -340,15 +361,22 @@ h3 {
     padding: 40px;
     border-radius: 30px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     max-width: 500px;
     width: 90%;
     animation: popup 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.2s both;
 }
 
 @keyframes popup {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .success-subtitle {
