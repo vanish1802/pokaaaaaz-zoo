@@ -56,7 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to transform UI to Valentine Mode
     function triggerValentineMode() {
         // Fade out buttons first
-        initialButtons.style.opacity = '0';
+        // initialButtons.style.opacity = '0'; // WE DO NOT FADE OUT CONTAINER ANYMORE
+        btnNo.style.display = 'none'; // HIDE NO BUTTON
+
         questionText.style.opacity = '0';
 
         setTimeout(() => {
@@ -66,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             questionText.style.fontSize = "1.8rem";
 
             // Switch buttons (Hide old ones, we don't show new one for this prank flow)
-            initialButtons.classList.add('hidden');
+            // initialButtons.classList.add('hidden'); // WE KEEP YES BUTTON VISIBLE
             // finalButtons.classList.remove('hidden'); // HIDDEN FOR PRANK MODE
 
             // Warm up background
